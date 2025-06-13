@@ -1,0 +1,8 @@
+# Ignore everything:
+/*
+
+# This will exclude .ts files from ignore:
+!*.ts
+
+# Exclude subfolders from ignore too:
+!*/

@@ -1,0 +1,33 @@
+{
+  "name": "effective-auto-waffle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tests": "npx playwright test /src/tests --project=test",
+    "format": "prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slava1146/effective-auto-waffle.git"
+  },
+  "keywords": [
+    "playwright",
+    "typescript"
+  ],
+  "author": "Viachaslau Charaukhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slava1146/effective-auto-waffle/issues"
+  },
+  "homepage": "https://github.com/Slava1146/effective-auto-waffle#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.1",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.34.0"
+  }
+}
