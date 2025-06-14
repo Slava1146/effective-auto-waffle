@@ -10,7 +10,10 @@ export class LoginPage extends BasePage {
 
   readonly loginEr: Locator;
 
-  constructor(page: Page) {
+  constructor(
+    page: Page,
+    readonly url: string = '/',
+  ) {
     super(page);
     this.emailInput = this.page.locator('#email');
     this.passInput = this.page.locator('#password');
@@ -18,8 +21,8 @@ export class LoginPage extends BasePage {
     this.loginEr = this.page.locator('#error');
   }
 
-  async goto() {
-    await this.page.goto('/');
+  async goto(url = this.url) {
+    await super.goto(url);
   }
 
   async defaultElVisibilityCheck(): Promise<void> {

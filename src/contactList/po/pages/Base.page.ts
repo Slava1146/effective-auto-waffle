@@ -1,11 +1,13 @@
-import { Locator, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 
 export abstract class BasePage {
-  protected readonly rootEl: Locator;
   protected readonly page: Page;
 
   constructor(page: Page) {
     this.page = page;
-    this.rootEl = page.locator('.main-content');
+  }
+
+  async goto(url: string): Promise<void> {
+    await Promise.race([this.page.goto(url, { waitUntil: 'networkidle' }), this.page.waitForTimeout(15 * 1000)]);
   }
 }
