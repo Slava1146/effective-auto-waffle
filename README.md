@@ -16,7 +16,10 @@ Now I'm learning test automation, focusing on JavaScript, Playwright, and TypeSc
 This web application is a contact list application with a web UI component and a REST API component. It’s excellent as a dummy web application because it allows us to practice more than just UI testing. This app was created by [Kristin Jackvony](https://thinkingtester.com/about/).
 - TBD
 
-## 3 - Notes
+## 3 - Status
+🚧Under construction!🚧
+
+## 4 - Notes
 - User credentials should be stored in .env file in the root directory.
 <br>Example:
 <br>`CONTACT_LIST_USER = 'your_user_for_other_tests'`
