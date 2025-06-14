@@ -3,17 +3,6 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   // testDir: './tests',
   /* Run tests in files in parallel */
@@ -28,72 +17,31 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    baseURL: 'https://thinking-tester-contact-list.herokuapp.com/',
     trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'contactList',
-      testMatch: '**contactList/tests/**/*.spec.ts',
+      name: 'contactListSetupUi',
+      testMatch: 'auth.cl.ui.setup.ts',
+    },
+    {
+      name: 'contactListUi',
+      testMatch: '**contactList/tests-ui/**/*.spec.ts',
       use: {
-        baseURL: 'https://thinking-tester-contact-list.herokuapp.com/',
         screenshot: {
           mode: 'only-on-failure',
           fullPage: true,
           omitBackground: true,
         },
       },
+      dependencies: ['contactListSetupUi'],
     },
-
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
-
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
   timeout: 90 * 1000,
   expect: {
     timeout: 30 * 1000,
   },
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
