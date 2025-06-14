@@ -1,4 +1,7 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig /*devices*/ } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -35,13 +38,10 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      name: 'test',
-      testMatch: '**/tests/**/*.spec.ts',
+      name: 'contactList',
+      testMatch: '**contactList/tests/**/*.spec.ts',
       use: {
+        baseURL: 'https://thinking-tester-contact-list.herokuapp.com/',
         screenshot: {
           mode: 'only-on-failure',
           fullPage: true,
@@ -49,6 +49,11 @@ export default defineConfig({
         },
       },
     },
+
+    // {
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'] },
+    // },
 
     // {
     //   name: 'firefox',

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tests": "npx playwright test /src/tests --project=test",
+    "contactListTests": "npx playwright test /src/contactList/tests --project=contactList",
+    "contactListTestsHeaded": "npx playwright test /src/contactList/tests --project=contactList --headed",
     "format": "prettier . --write"
   },
   "repository": {
@@ -29,5 +30,8 @@
     "globals": "^16.2.0",
     "prettier": "^3.5.3",
     "typescript-eslint": "^8.34.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
   }
 }
