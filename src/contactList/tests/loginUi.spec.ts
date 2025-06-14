@@ -1,26 +1,31 @@
 import { expect } from '@playwright/test';
 import { test } from '../po';
 import { CONTACT_LIST_USER } from '../data/constants';
+import { ERRORS } from '../data/textData';
+import { generateAlphanumericString } from '../../utils/strings';
 
 test.describe('Login UI tests', () => {
+  const RANDOM_STRING = generateAlphanumericString(10);
+
   test.beforeEach(async ({ loginPage }) => {
     await loginPage.goto();
+    await loginPage.defaultElVisibilityCheck();
   });
 
   test('Verify that user can log in and log out from UI', async ({ loginPage, contactListPage }) => {
-    await expect(loginPage.emailInput).toBeVisible();
-    await expect(loginPage.passInput).toBeVisible();
-    await expect(loginPage.submitBtn).toBeVisible();
-
-    await loginPage.emailInput.fill(CONTACT_LIST_USER.user);
-    await loginPage.passInput.fill(CONTACT_LIST_USER.password);
-    await loginPage.submitBtn.click();
+    await loginPage.login(CONTACT_LIST_USER.user, CONTACT_LIST_USER.password);
 
     await expect(contactListPage.logoutBtn).toBeVisible();
     await contactListPage.logoutBtn.click();
 
-    await expect(loginPage.emailInput).toBeVisible();
-    await expect(loginPage.passInput).toBeVisible();
-    await expect(loginPage.submitBtn).toBeVisible();
+    await loginPage.defaultElVisibilityCheck();
+  });
+
+  test('Verify that user cannot log in from UI with incorrect credentials', async ({ loginPage, contactListPage }) => {
+    await loginPage.login(RANDOM_STRING, RANDOM_STRING);
+
+    await expect(contactListPage.logoutBtn).not.toBeVisible();
+    await expect(loginPage.loginEr).toBeVisible();
+    await expect(loginPage.loginEr).toHaveText(ERRORS.loginPage.invalidCredentials);
   });
 });
