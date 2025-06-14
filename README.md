@@ -8,7 +8,7 @@ Hi all and welcome to my first piblic repository! My name is Slava. I am a QA En
 - Bug Reporting & Verification: Identifying, documenting, and tracking issues for efficient resolution.
 - Knowledge Transfer & Onboarding: Creating structured plans and delivering onboarding sessions to newcomers, ensuring smooth transitions and understanding.
 - Test Documentation: Writing, updating, and reviewing test cases, plans, and reports for accuracy and clarity.
-I am also learning test automation, focusing on JavaScript, Playwright, and TypeScript, to enhance testing efficiency and broaden my technical skill set.
+- Now I'm learning test automation, focusing on JavaScript, Playwright, and TypeScript, to enhance testing efficiency and broaden my technical skill set.
 
 ## 2 - Apps under test
 - https://thinking-tester-contact-list.herokuapp.com/
@@ -18,9 +18,9 @@ This web application is a contact list application with a web UI component and a
 ## 3 - Notes
 - User credentials should be stored in .env file.
 - Example:
-`CONTACT_LIST_USER = ''
-CONTACT_LIST_USER_LOGIN = ''
-CONTACT_LIST_PASS = ''`
+    `CONTACT_LIST_USER = ''
+    CONTACT_LIST_USER_LOGIN = ''
+    CONTACT_LIST_PASS = ''`
 
 ## List of commands
 - `npm run contactListUiHeaded` to run all tests in /src/contactList/tests in headed mode
