@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+// import { expect } from '@playwright/test';
 import { test } from '../po';
 
 test.describe('ContactList UI tests', () => {
@@ -8,7 +8,9 @@ test.describe('ContactList UI tests', () => {
     await contactListPage.defaultElVisibilityCheck();
   });
 
-  test('test', async ({ contactListPage }) => {
-    await expect(contactListPage.logoutBtn).toBeVisible();
+  test('Default page state', async ({ contactListPage }) => {
+    await contactListPage.defaultElVisibilityCheck();
+    await contactListPage.footer.contentCheck();
+    await contactListPage.header.contentCheck('list');
   });
 });

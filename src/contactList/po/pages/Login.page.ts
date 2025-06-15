@@ -10,8 +10,6 @@ export class LoginPage extends BasePage {
 
   readonly loginEr: Locator;
 
-  readonly pageHeading: Locator;
-
   readonly formHeading: Locator;
 
   readonly signUpHeading: Locator;
@@ -33,7 +31,6 @@ export class LoginPage extends BasePage {
     this.passInpt = this.page.locator('#password');
     this.submitBtn = this.page.locator('#submit');
     this.loginEr = this.page.locator('#error');
-    this.pageHeading = this.page.locator('h1');
     this.formHeading = this.page.locator('.main-content > p:first-child');
     this.signUpHeading = this.page.locator('.main-content > p').last();
     this.signUpBtn = this.page.locator('#signup');

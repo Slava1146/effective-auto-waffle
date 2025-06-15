@@ -1,10 +1,12 @@
 import { test as baseTest } from '@playwright/test';
 import { LoginPage } from './pages/Login.page';
 import { ContactListPage } from './pages/ContactList.page';
+import { AddContactPage } from './pages/AddContact.page';
 
 export type TestType = typeof baseTest & {
   loginPage: LoginPage;
   contactListPage: ContactListPage;
+  addContactPage: AddContactPage;
 };
 
 export const test = baseTest.extend<TestType>({
@@ -15,9 +17,11 @@ export const test = baseTest.extend<TestType>({
     await use(loginPage);
   },
   contactListPage: async ({ page }, use) => {
-    // Set up the fixture.
     const contactListPage = new ContactListPage(page);
-    // Use the fixture value in the test.
     await use(contactListPage);
+  },
+  addContactPage: async ({ page }, use) => {
+    const addContactPage = new AddContactPage(page);
+    await use(addContactPage);
   },
 });

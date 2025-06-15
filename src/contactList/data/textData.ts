@@ -9,8 +9,16 @@ export const footer = {
   logo: '/img/thinkingTesterLogo.png',
 };
 
+export const header = {
+  logoutBtn: 'Logout',
+  pageHeading: {
+    login: 'Contact List App',
+    list: 'Contact List',
+    addContact: 'Add Contact',
+  },
+};
+
 export const loginPage = {
-  heading: 'Contact List App',
   welcomeMsg:
     'Welcome! This application is for testing purposes only. The database will be purged as needed to keep costs down.',
   apiInfoMsg: 'The API documentation can be found here.',
@@ -36,8 +44,55 @@ export const contactTableHeader = [
 ];
 
 export const contactPage = {
-  heading: 'Contact List',
   subHeading: 'Click on any contact to view the Contact Details',
   addBtn: 'Add a New Contact',
-  logoutBtn: 'Logout',
+};
+
+export const contactForm = {
+  fistName: {
+    label: '* First Name:',
+    input: 'First Name',
+  },
+  lastName: {
+    label: '* Last Name:',
+    input: 'Last Name',
+  },
+  birthDay: {
+    label: 'Date of Birth:',
+    input: 'yyyy-MM-dd',
+  },
+  email: {
+    label: 'Email:',
+    input: 'example@email.com',
+  },
+  phone: {
+    label: 'Phone:',
+    input: '8005551234',
+  },
+  addressFirst: {
+    label: 'Street Address 1:',
+    input: 'Address 1',
+  },
+  addressSecond: {
+    label: 'Street Address 2:',
+    input: 'Address 2',
+  },
+  city: {
+    label: 'City:',
+    input: 'City',
+  },
+  state: {
+    label: 'State or Province:',
+    input: 'State or Province',
+  },
+  postalCode: {
+    label: 'Postal Code:',
+    input: 'Postal Code',
+  },
+  country: {
+    label: 'Country:',
+    input: 'Country',
+  },
+  submitBtn: 'Submit',
+  cancelBtn: 'Cancel',
 };

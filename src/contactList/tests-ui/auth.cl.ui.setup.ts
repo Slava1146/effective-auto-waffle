@@ -13,7 +13,7 @@ setup.describe('Authenticate via UI form', () => {
 
   setup('Log in and save sate', async ({ loginPage, page, contactListPage }) => {
     await loginPage.login(CONTACT_LIST_USER.user, CONTACT_LIST_USER.password);
-    await expect(contactListPage.logoutBtn).toBeVisible();
+    await expect(contactListPage.header.logoutBtn).toBeVisible();
 
     await page.context().storageState({ path: authFile });
   });
