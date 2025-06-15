@@ -8,12 +8,12 @@ const authFile = path.join(__dirname, '../data/states/contactListUiAuth.json');
 setup.describe('Authenticate via UI form', () => {
   setup.beforeEach(async ({ loginPage }) => {
     await loginPage.goto();
-    await loginPage.defaultElVisibilityCheck();
+    await loginPage.loginFormVisibilityCheck();
   });
 
   setup('Log in and save sate', async ({ loginPage, page, contactListPage }) => {
     await loginPage.login(CONTACT_LIST_USER.user, CONTACT_LIST_USER.password);
-    await expect(contactListPage.logoutBtn).toBeVisible();
+    await expect(contactListPage.header.logoutBtn).toBeVisible();
 
     await page.context().storageState({ path: authFile });
   });
