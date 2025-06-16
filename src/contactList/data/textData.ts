@@ -15,6 +15,8 @@ export const header = {
     login: 'Contact List App',
     list: 'Contact List',
     addContact: 'Add Contact',
+    editContact: 'Edit Contact',
+    contactDetails: 'Contact Details',
   },
 };
 
@@ -50,11 +52,11 @@ export const contactPage = {
 
 export const contactForm = {
   fistName: {
-    label: '* First Name:',
+    label: /First Name:/,
     input: 'First Name',
   },
   lastName: {
-    label: '* Last Name:',
+    label: /Last Name:/,
     input: 'Last Name',
   },
   birthDay: {

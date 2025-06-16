@@ -16,7 +16,7 @@ export class ContactListPage extends BasePage {
     this.tableHeader = this.page.locator('.contactTableHead th');
   }
 
-  async goto(url = this.url) {
+  async goto(url = this.url): Promise<void> {
     await super.goto(url);
   }
 
