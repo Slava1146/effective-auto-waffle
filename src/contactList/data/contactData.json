@@ -1,0 +1,13 @@
+{
+  "firstName": "Adam",
+  "lastName": "Jensen",
+  "birthdate": "1977-07-12",
+  "email": "adam-jensenp@fake.com",
+  "phone": "8005551000",
+  "street1": "123 Main St.",
+  "street2": "Apartment Q",
+  "city": "New York",
+  "stateProvince": "NY",
+  "postalCode": "12345",
+  "country": "USA"
+}

@@ -3,14 +3,14 @@ import { test } from '../po';
 
 test.describe('ContactList UI tests', () => {
   test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
-  test.beforeEach(async ({ contactListPage }) => {
-    await contactListPage.goto();
-    await contactListPage.defaultElVisibilityCheck();
+  test.beforeEach(async ({ contactList }) => {
+    await contactList.goto();
+    await contactList.defaultElVisibilityCheck();
   });
 
-  test('Default page state', async ({ contactListPage }) => {
-    await contactListPage.defaultElVisibilityCheck();
-    await contactListPage.footer.contentCheck();
-    await contactListPage.header.contentCheck('list');
+  test('Default page state', async ({ contactList }) => {
+    await contactList.defaultElVisibilityCheck();
+    await contactList.footer.contentCheck();
+    await contactList.header.contentCheck('list');
   });
 });

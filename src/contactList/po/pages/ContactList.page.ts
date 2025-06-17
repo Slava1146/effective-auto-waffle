@@ -1,31 +1,30 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from './Base.page';
-import { contactTableHeader, contactPage } from '../../data/textData';
+import { contactPage } from '../../data/textData';
+import { ContactListTable } from '../components/contacListTable';
 
 export class ContactListPage extends BasePage {
   readonly addContactBtn: Locator;
 
-  readonly tableHeader: Locator;
+  readonly table: ContactListTable;
 
   constructor(
     page: Page,
-    readonly url: string = '/contactlist',
+    readonly url: string = '/contactList',
   ) {
     super(page);
     this.addContactBtn = this.page.locator('#add-contact');
-    this.tableHeader = this.page.locator('.contactTableHead th');
+    this.table = new ContactListTable(page);
   }
 
-  async goto(url = this.url) {
+  async goto(url = this.url): Promise<void> {
     await super.goto(url);
   }
 
   async defaultElVisibilityCheck(): Promise<void> {
     await expect(this.addContactBtn).toBeVisible();
     await expect(this.addContactBtn).toHaveText(contactPage.addBtn);
-    await expect(this.tableHeader.first()).toBeVisible();
-    for (let i = 0; i < (await this.tableHeader.count()); i++) {
-      await expect(this.tableHeader.nth(i)).toHaveText(contactTableHeader[i]);
-    }
+    await expect(this.table.header.first()).toBeVisible();
+    await this.table.tableHeaderCheck();
   }
 }

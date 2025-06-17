@@ -39,7 +39,7 @@ export class LoginPage extends BasePage {
     this.linkToApi = this.page.locator('.welcome-message > a');
   }
 
-  async goto(url = this.url) {
+  async goto(url = this.url): Promise<void> {
     await super.goto(url);
   }
 
