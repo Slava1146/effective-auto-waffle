@@ -75,4 +75,18 @@ export class ContactForm {
     this.countryLbl = page.locator('label[for="country"]');
     this.countryInpt = page.locator('#country');
   }
+
+  async fillForm(data: TContactData): Promise<void> {
+    await this.fNameInpt.fill(data.firstName);
+    await this.lNameInpt.fill(data.lastName);
+    await this.birthInpt.fill(data.birthdate);
+    await this.emailInpt.fill(data.email);
+    await this.phoneInpt.fill(data.phone);
+    await this.addressFstInpt.fill(data.street1);
+    await this.addressSecInpt.fill(data.street2);
+    await this.cityInpt.fill(data.city);
+    await this.stateInpt.fill(data.stateProvince);
+    await this.postalCodeInpt.fill(data.postalCode);
+    await this.countryInpt.fill(data.country);
+  }
 }

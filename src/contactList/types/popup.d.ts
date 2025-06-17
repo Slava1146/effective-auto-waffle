@@ -1,0 +1,1 @@
+type TPopup = 'accept' | 'decline';
