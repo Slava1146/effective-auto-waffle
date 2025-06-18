@@ -6,7 +6,7 @@ export class ContactListAPI {
     this.page = page;
   }
 
-  async createContact(data: object): Promise<TContactDataApi> {
+  async createContact(data: object): Promise<TContactData> {
     const response = await this.page.request.post(URL_PATH.contactList.api.addContact, { data: data });
     expect(response.status()).toEqual(201);
     const responseBody = await response.text();
@@ -28,7 +28,7 @@ export class ContactListAPI {
     }
   }
 
-  async upadateContactPart(contactId: string, data: object): Promise<object> {
+  async upadateContactPart(contactId: string, data: object): Promise<TContactData> {
     const response = await this.page.request.patch(URL_PATH.contactList.api.updateContact + contactId, { data: data });
     expect(response.status()).toEqual(200);
     const responseBody = await response.text();
@@ -36,7 +36,7 @@ export class ContactListAPI {
     return JSON.parse(responseBody);
   }
 
-  async upadateContact(contactId: string, data: object): Promise<object> {
+  async upadateContact(contactId: string, data: object): Promise<TContactData> {
     const response = await this.page.request.put(URL_PATH.contactList.api.updateContact + contactId, { data: data });
     expect(response.status()).toEqual(200);
     const responseBody = await response.text();
@@ -52,7 +52,7 @@ export class ContactListAPI {
     return responseBody;
   }
 
-  async checkContactData(actualData: TContactData, expectedData): Promise<void> {
+  async checkContactData(actualData: TContactData, expectedData: TContactData): Promise<void> {
     expect(actualData.firstName).toEqual(expectedData.firstName);
     expect(actualData.lastName).toEqual(expectedData.lastName);
     expect(actualData.email).toEqual(expectedData.email);

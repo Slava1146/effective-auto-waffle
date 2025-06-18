@@ -14,7 +14,7 @@ const partUpdate = {
 let contactId: string;
 
 test.describe('API E2E tests', () => {
-  let newContact: TContactDataApi;
+  let newContact: TContactData;
 
   test.beforeEach(async ({ contactListApi }) => {
     newContact = await contactListApi.createContact(contactData);
@@ -22,7 +22,7 @@ test.describe('API E2E tests', () => {
   });
 
   test.afterEach(async ({ contactListApi }) => {
-    if(contactId !== undefined) await contactListApi.deleteContact(contactId);
+    if (contactId !== undefined) await contactListApi.deleteContact(contactId);
   });
 
   test('Create contact', async ({ contactListApi }) => {
