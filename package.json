@@ -6,6 +6,7 @@
   "scripts": {
     "contactListUi": "npx playwright test /src/contactList/tests-ui --project=contactListUi",
     "contactListUiHeaded": "npx playwright test /src/contactList/tests-ui --project=contactListUi --headed",
+    "contactListApi": "npx playwright test /src/contactList/tests-api --project=contactListApi",
     "format": "prettier . --write"
   },
   "repository": {
