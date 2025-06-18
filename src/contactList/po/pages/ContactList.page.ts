@@ -2,6 +2,7 @@ import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from './Base.page';
 import { contactPage } from '../../data/textData';
 import { ContactListTable } from '../components/contacListTable';
+import { URL_PATH } from '../../data/constants';
 
 export class ContactListPage extends BasePage {
   readonly addContactBtn: Locator;
@@ -10,7 +11,7 @@ export class ContactListPage extends BasePage {
 
   constructor(
     page: Page,
-    readonly url: string = '/contactList',
+    readonly url: string = URL_PATH.contactList.pages.CONTACT_LIST_PAGE_URL,
   ) {
     super(page);
     this.addContactBtn = this.page.locator('#add-contact');

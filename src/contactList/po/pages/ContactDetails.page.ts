@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './Base.page';
 import { ContactForm } from '../components/contactForm';
+import { URL_PATH } from '../../data/constants';
 
 export class ContactDetailsPage extends BasePage {
   readonly editBtn: Locator;
@@ -13,7 +14,7 @@ export class ContactDetailsPage extends BasePage {
 
   constructor(
     page: Page,
-    readonly url: string = '/contactDetails',
+    readonly url: string = URL_PATH.contactList.pages.CONTACT_DETAILS_PAGE_URL,
   ) {
     super(page);
     this.editBtn = this.page.locator('#edit-contact');

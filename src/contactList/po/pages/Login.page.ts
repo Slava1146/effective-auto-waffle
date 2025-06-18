@@ -1,5 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from './Base.page';
+import { URL_PATH } from '../../data/constants';
 
 export class LoginPage extends BasePage {
   readonly emailInpt: Locator;
@@ -24,7 +25,7 @@ export class LoginPage extends BasePage {
 
   constructor(
     page: Page,
-    readonly url: string = '/',
+    readonly url: string = URL_PATH.contactList.pages.LOGIN_PAGE,
   ) {
     super(page);
     this.emailInpt = this.page.locator('#email');
