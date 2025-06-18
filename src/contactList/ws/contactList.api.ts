@@ -6,7 +6,7 @@ export class ContactListAPI {
     this.page = page;
   }
 
-  async createContact(data: object): Promise<object> {
+  async createContact(data: object): Promise<TContactDataApi> {
     const response = await this.page.request.post(URL_PATH.contactList.api.addContact, { data: data });
     expect(response.status()).toEqual(201);
     const responseBody = await response.text();
@@ -19,13 +19,13 @@ export class ContactListAPI {
     const statusCode = response.status();
     const responseBody = await response.text();
     switch (statusCode) {
-        case 200:            
-            return JSON.parse(responseBody);
-        case 404:            
-            return responseBody;
-        default:
-            throw new Error('No valid option was provided');
-    }    
+      case 200:
+        return JSON.parse(responseBody);
+      case 404:
+        return responseBody;
+      default:
+        throw new Error('No valid option was provided');
+    }
   }
 
   async upadateContactPart(contactId: string, data: object): Promise<object> {
