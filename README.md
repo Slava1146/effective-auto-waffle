@@ -2,7 +2,7 @@
 
 ## 1 - About the author
 
-Hi all and welcome to my first piblic repository! My name is Slava. I am a QA Engineer with expertise in functional and non-functional testing, ensuring software quality across web, mobile, and integrated systems. My experience includes:
+Hi all and welcome to my first public repository! My name is Slava. I am a QA Engineer with expertise in functional and non-functional testing, ensuring software quality across web, mobile, and integrated systems. My experience includes:
 - Functional Testing: New features, web services, integration testing, smoke/regression testing, mobile testing.
 - Non-Functional Testing: Compatibility, UI/GUI, usability, internationalization/localization, and requirements validation.
 - Bug Reporting & Verification: Identifying, documenting, and tracking issues for efficient resolution.
