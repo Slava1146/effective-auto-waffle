@@ -21,6 +21,11 @@ export const URL_PATH = {
     },
     api: {
       login: 'users/login',
+      addContact: 'contacts',
+      updateContact: 'contacts/',
+      getContact: 'contacts/',
+      getContactList: 'contacts',
+      deleteContact: 'contacts/',
     },
   },
 };

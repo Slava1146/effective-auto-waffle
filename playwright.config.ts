@@ -1,10 +1,13 @@
 import { defineConfig } from '@playwright/test';
 import { getEnv } from './src/utils/env';
+import { readJson } from './src/utils/readJson';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 const { url } = getEnv();
+
+const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
 
 export default defineConfig({
   // testDir: './tests',
@@ -54,6 +57,9 @@ export default defineConfig({
           mode: 'only-on-failure',
           fullPage: true,
           omitBackground: true,
+        },
+        extraHTTPHeaders: {
+          Authorization: `Bearer ${apiStorage.cookies[0].value}`,
         },
       },
       dependencies: ['contactListSetupApi'],

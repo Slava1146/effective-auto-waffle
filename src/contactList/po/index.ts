@@ -4,6 +4,7 @@ import { ContactListPage } from './pages/ContactList.page';
 import { AddContactPage } from './pages/AddContact.page';
 import { EditContactPage } from './pages/EditContact.page';
 import { ContactDetailsPage } from './pages/ContactDetails.page';
+import { ContactListAPI } from '../ws/contactList.api';
 
 export type TestType = typeof baseTest & {
   login: LoginPage;
@@ -11,6 +12,7 @@ export type TestType = typeof baseTest & {
   addContact: AddContactPage;
   editContact: EditContactPage;
   contactDetails: ContactDetailsPage;
+  contactListApi: ContactListAPI;
 };
 
 export const test = baseTest.extend<TestType>({
@@ -35,5 +37,9 @@ export const test = baseTest.extend<TestType>({
   contactDetails: async ({ page }, use) => {
     const contactDetails = new ContactDetailsPage(page);
     await use(contactDetails);
+  },
+  contactListApi: async ({ page }, use) => {
+    const contactListApi = new ContactListAPI(page);
+    await use(contactListApi);
   },
 });
