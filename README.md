@@ -26,9 +26,21 @@ This web application is a contact list application with a web UI component and a
 <br>`CONTACT_LIST_USER_LOGIN = 'your_user_for_login_test'`
 <br>`CONTACT_LIST_PASS = ''`
 
+- Create folder `states` in `src/contactList/data`
+- Create in `states` folder `contactListApiAuth.json` and `contactListUiAuth.json`
+- Put in each file following: `{ "cookies": [ { } ], "origins": [] }` 
+
 ## List of commands
 - `npm run contactListUiHeaded` to run all tests in /src/contactList/tests-ui in headed mode
 - `npm run contactListUi` to run all tests in /src/contactList/tests-ui in headless mode
 - `npm run contactListApi` to run all tests in /src/contactList/tests-api
 
 - `npm run format` to format files
+
+## 5 - Required installations
+1. Node version - min 18.x.x <br>
+2. NPM version - min 10.x.x <br>
+3. Install Dependencies: `npm install`
+4. Run `npx playwright install` to download Playwright browsers
+5. `npm install randomstring` [Doc](https://www.npmjs.com/package/randomstring)
+6. `npm install dotenv` [Doc](https://www.npmjs.com/package/dotenv)
