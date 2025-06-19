@@ -8,7 +8,7 @@ jobs:
   test:
     timeout-minutes: 20
     runs-on: ubuntu-latest
-    steps:
+    steps:      
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -17,12 +17,18 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
+      - name: Run Contacl list UI tests 
         env:
           CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
           CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
         run: npx playwright test --project=contactListUi
+      - name: Run Contacl list API tests
+        env:
+          CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
+          CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
+          CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
+        run: npx playwright test --project=contactListApi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
