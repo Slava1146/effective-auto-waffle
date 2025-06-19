@@ -12,7 +12,7 @@ const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.js
 const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
   endpoint: 'https://reportportal.epam.com/api/v1',
-  project: 'EFFECTIVE-AUTO-WAFFLE',
+  project: 'viachaslau_charaukhin_personal',
   launch: 'Launch name',
   mode: 'DEFAULT',
   description: 'https://github.com/Slava1146/effective-auto-waffle',
