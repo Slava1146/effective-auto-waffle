@@ -4,9 +4,13 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+env:
+  CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
+  CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
+  CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,10 +22,6 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        env:
-          CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
-          CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
-          CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
         run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
