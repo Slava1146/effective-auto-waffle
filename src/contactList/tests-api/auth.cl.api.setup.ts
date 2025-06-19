@@ -14,5 +14,6 @@ setup('Authenticate via API', async ({ request }) => {
       password: CONTACT_LIST_USER.password,
     },
   });
+  console.log(CONTACT_LIST_USER.user);
   await request.storageState({ path: authFile });
 });
