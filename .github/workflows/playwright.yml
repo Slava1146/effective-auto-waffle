@@ -17,13 +17,13 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Contacl list UI tests 
+      - name: Run Contact list UI tests 
         env:
           CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
           CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
         run: npx playwright test --project=contactListUi
-      - name: Run Contacl list API tests
+      - name: Run Contact list API tests
         env:
           CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
           CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}
