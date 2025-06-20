@@ -9,11 +9,12 @@ const { url } = getEnv();
 
 const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
 
-const launchName: string = `${process.env.PROJECT_NAME} - ${new Date().toISOString()}`;
+//const launchName: string = `${process.env.PROJECT_NAME} - ${new Date().toISOString()}`;
+const launchName: string = ` - ${new Date().toISOString()}`;
 
 const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
-  endpoint: 'https://reportportal.epam.com/api/v1',
+  endpoint: 'https://reportportal.epam.com/api/v2',
   project: 'viachaslau_charaukhin_personal',
   launch: launchName,
   mode: 'DEFAULT',
