@@ -15,7 +15,7 @@ const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
   endpoint: 'https://reportportal.epam.com/api/v2',
   project: 'viachaslau_charaukhin_personal',
-  launch: `Test launch name - ${new Date().toISOString()}`,
+  launch: 'Test launch name',
   mode: 'DEFAULT',
   description: 'https://github.com/Slava1146/effective-auto-waffle',
 };
