@@ -19,9 +19,9 @@ const RPconfig = {
 };
 
 const getReporters = () => {
-  const reporter = [['html'], ['list']];
+  const reporter: any[] = [['html', { open: 'never' }], ['list']];
 
-  if (process.env.USE_REPORTPORTAL !== 'true') {
+  if (process.env.USE_REPORTPORTAL === 'true') {
     reporter.push(['@reportportal/agent-js-playwright', RPconfig]);
   }
 
