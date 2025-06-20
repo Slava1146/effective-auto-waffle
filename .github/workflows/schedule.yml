@@ -1,7 +1,7 @@
 name: Playwright Tests Scheduled
 on:
   schedule:
-    - cron:  '0 18 * * *'
+    - cron:  '40 6 * * *'
 jobs:
   test:
     timeout-minutes: 20
@@ -22,6 +22,7 @@ jobs:
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
           RP_GITHUB_KEY: ${{ secrets.RP_GITHUB_KEY }}
           USE_REPORTPORTAL: 'true'
+          PROJECT_NAME: 'Contact List UI tests'
         run: npx playwright test --project=contactListUi
       - name: Run Contact list API tests
         env:
@@ -30,6 +31,7 @@ jobs:
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
           RP_GITHUB_KEY: ${{ secrets.RP_GITHUB_KEY }}
           USE_REPORTPORTAL: 'true'
+          PROJECT_NAME: 'Contact List API tests'
         run: npx playwright test --project=contactListApi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

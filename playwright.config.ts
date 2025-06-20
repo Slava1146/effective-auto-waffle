@@ -9,13 +9,13 @@ const { url } = getEnv();
 
 const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
 
-//const launchName: string = `${process.env.PROJECT_NAME} - ${new Date().toISOString()}`;
+const launchName: string = `${process.env.PROJECT_NAME}`;
 
 const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
   endpoint: 'https://reportportal.epam.com/api/v2',
   project: 'viachaslau_charaukhin_personal',
-  launch: 'Test launch name',
+  launch: launchName,
   mode: 'DEFAULT',
   description: 'https://github.com/Slava1146/effective-auto-waffle',
 };
