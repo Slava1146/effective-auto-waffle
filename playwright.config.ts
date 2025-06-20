@@ -18,6 +18,16 @@ const RPconfig = {
   description: 'https://github.com/Slava1146/effective-auto-waffle',
 };
 
+const getReporters = () => {
+  const reporter = [['html'], ['list']];
+
+  if (process.env.USE_REPORTPORTAL !== 'true') {
+    reporter.push(['@reportportal/agent-js-playwright', RPconfig]);
+  }
+
+  return reporter;
+}
+
 export default defineConfig({
   // testDir: './tests',
   /* Run tests in files in parallel */
@@ -30,7 +40,7 @@ export default defineConfig({
   // workers: process.env.CI ? 1 : undefined,
   workers: 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'], ['list'], ['@reportportal/agent-js-playwright', RPconfig]],
+  reporter: getReporters(),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: url,
