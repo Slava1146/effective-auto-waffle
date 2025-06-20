@@ -9,11 +9,13 @@ const { url } = getEnv();
 
 const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
 
+const launchName: string = `(${process.env.PROJECT_NAME || 'Default project name'}) - ${new Date().toISOString()}`;
+
 const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
   endpoint: 'https://reportportal.epam.com/api/v1',
   project: 'viachaslau_charaukhin_personal',
-  launch: 'Launch name',
+  launch: launchName,
   mode: 'DEFAULT',
   description: 'https://github.com/Slava1146/effective-auto-waffle',
 };
@@ -29,25 +31,19 @@ const getReporters = () => {
 }
 
 export default defineConfig({
-  // testDir: './tests',
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  // workers: process.env.CI ? 1 : undefined,
   workers: 2,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: getReporters(),
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: url,
     trace: 'on-first-retry',
   },
-
-  /* Configure projects for major browsers */
+  timeout: 90 * 1000,
+  expect: {
+    timeout: 30 * 1000,
+  },
   projects: [
     {
       name: 'contactListSetupUi',
@@ -84,9 +80,5 @@ export default defineConfig({
       },
       dependencies: ['contactListSetupApi'],
     },
-  ],
-  timeout: 90 * 1000,
-  expect: {
-    timeout: 30 * 1000,
-  },
+  ],  
 });
