@@ -9,7 +9,7 @@ const { url } = getEnv();
 
 const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
 
-const launchName: string = `(${process.env.PROJECT_NAME || 'Default project name'}) - ${new Date().toISOString()}`;
+const launchName: string = `${process.env.PROJECT_NAME} - ${new Date().toISOString()}`;
 
 const RPconfig = {
   apiKey: process.env.RP_GITHUB_KEY,
