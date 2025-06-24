@@ -28,7 +28,7 @@ const getReporters = () => {
   }
 
   return reporter;
-}
+};
 
 export default defineConfig({
   fullyParallel: true,
@@ -80,5 +80,5 @@ export default defineConfig({
       },
       dependencies: ['contactListSetupApi'],
     },
-  ],  
+  ],
 });

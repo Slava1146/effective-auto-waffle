@@ -4,7 +4,7 @@ import { CONTACT_LIST_USER } from '../data/constants';
 import { errors, loginPage as loginPgContent } from '../data/textData';
 import { generateAlphanumericString } from '../../utils/strings';
 
-test.describe('Login UI tests', {tag: '@loginUI'}, () => {
+test.describe('Login UI tests', { tag: '@loginUI' }, () => {
   const RANDOM_STRING = generateAlphanumericString(8);
 
   test.use({ storageState: { cookies: [], origins: [] } });

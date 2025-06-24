@@ -1,12 +1,12 @@
 name: Contact List API Tests Scheduled
 on:
   schedule:
-    - cron:  '0 19 * * *'
+    - cron: '0 19 * * *'
 jobs:
   test:
     timeout-minutes: 20
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:

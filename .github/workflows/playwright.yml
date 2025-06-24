@@ -8,7 +8,7 @@ jobs:
   test:
     timeout-minutes: 20
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -17,7 +17,7 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Contact list UI tests 
+      - name: Run Contact list UI tests
         env:
           CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
           CONTACT_LIST_USER_LOGIN: ${{ secrets.CONTACT_LIST_USER_LOGIN }}

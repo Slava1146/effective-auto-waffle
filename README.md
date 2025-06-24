@@ -33,7 +33,8 @@ This web application is a contact list application with a web UI component and a
 ## List of commands
 - `npm run contactListUiHeaded` to run all tests in /src/contactList/tests-ui in headed mode
 - `npm run contactListUi` to run all tests in /src/contactList/tests-ui in headless mode
-- `npm run contactListApi` to run all tests in /src/contactList/tests-api
+- `npm run contactListUiSmoke` to run smoke tests in /src/contactList/tests-ui in headed mode
+- `npm run contactListApiSmoke` to run smoke tests in /src/contactList/tests-api
 
 - `npm run format` to format files
 

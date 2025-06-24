@@ -3,7 +3,7 @@ import { test } from '../po';
 import { readJson } from '../../utils/readJson';
 import { generateAlphabeticString } from '../../utils/strings';
 
-test.describe('E2E UI tests', {tag: '@smoke'}, () => {
+test.describe('E2E UI tests', { tag: '@smoke' }, () => {
   test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
 
   const data = readJson('./src/contactList/data/contactData.json');
@@ -75,7 +75,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
 
     await addContact.contactForm.fillForm(contactData);
 
-    await page.screenshot({'path': 'test-results/filled-form.png'});
+    await page.screenshot({ path: 'test-results/filled-form.png' });
 
     await addContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -93,7 +93,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
       ).toHaveText(rowDataArr[i]);
     }
 
-    await page.screenshot({'path': 'test-results/created-contact-on-listing.png'});
+    await page.screenshot({ path: 'test-results/created-contact-on-listing.png' });
 
     // Review created contact on the contact details page
     await contactList.table.row.nth(rowNumber).click();
@@ -112,7 +112,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactData.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactData.country);
 
-    await page.screenshot({'path': 'test-results/contact-on-details-page.png'});
+    await page.screenshot({ path: 'test-results/contact-on-details-page.png' });
 
     // Open Edit page and make update
     await contactDetails.editBtn.click();
@@ -121,7 +121,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
 
     await editContact.contactForm.fillForm(contactDataUpd);
 
-    await page.screenshot({'path': 'test-results/updated-contact.png'});
+    await page.screenshot({ path: 'test-results/updated-contact.png' });
 
     await editContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -140,7 +140,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactDataUpd.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactDataUpd.country);
 
-    await page.screenshot({'path': 'test-results/updated-contact-on-details-page.png'});
+    await page.screenshot({ path: 'test-results/updated-contact-on-details-page.png' });
 
     await contactDetails.backToListBtn.click();
     await page.waitForLoadState('networkidle');
@@ -158,7 +158,7 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
       ).toHaveText(rowDataUpdArr[i]);
     }
 
-    await page.screenshot({'path': 'test-results/updated-contact-on-listing.png'});
+    await page.screenshot({ path: 'test-results/updated-contact-on-listing.png' });
 
     // Delete created contact
     await contactList.table.row.nth(rowNumber).click();
@@ -173,6 +173,6 @@ test.describe('E2E UI tests', {tag: '@smoke'}, () => {
 
     // Verify that deleted contact is not presented on the page
     await expect(page.getByText(`${contactDataUpd.firstName} ${contactDataUpd.lastName}`)).not.toBeVisible();
-    await page.screenshot({'path': 'test-results/listing-after-contact-deletion.png'});
+    await page.screenshot({ path: 'test-results/listing-after-contact-deletion.png' });
   });
 });

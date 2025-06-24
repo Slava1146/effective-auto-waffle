@@ -13,7 +13,7 @@ const partUpdate = {
 
 let contactId: string;
 
-test.describe('API E2E tests', {tag: '@smoke'}, () => {
+test.describe('API E2E tests', { tag: '@smoke' }, () => {
   let newContact: TContactData;
 
   test.beforeEach(async ({ contactListApi }) => {

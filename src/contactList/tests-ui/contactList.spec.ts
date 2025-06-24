@@ -1,7 +1,7 @@
 // import { expect } from '@playwright/test';
 import { test } from '../po';
 
-test.describe('ContactList UI tests', {tag: '@listingUI'}, () => {
+test.describe('ContactList UI tests', { tag: '@listingUI' }, () => {
   test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
   test.beforeEach(async ({ contactList }) => {
     await contactList.goto();
