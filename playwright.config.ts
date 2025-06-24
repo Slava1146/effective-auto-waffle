@@ -47,7 +47,7 @@ export default defineConfig({
   projects: [
     {
       name: 'contactListSetupUi',
-      testMatch: 'auth.cl.ui.setup.ts',
+      testMatch: 'auth.ui.setup.ts',
     },
     {
       name: 'contactListUi',
@@ -63,7 +63,7 @@ export default defineConfig({
     },
     {
       name: 'contactListSetupApi',
-      testMatch: 'auth.cl.api.setup.ts',
+      testMatch: 'auth.api.setup.ts',
     },
     {
       name: 'contactListApi',
