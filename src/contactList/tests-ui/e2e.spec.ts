@@ -3,7 +3,7 @@ import { test } from '../po';
 import { readJson } from '../../utils/readJson';
 import { generateAlphabeticString } from '../../utils/strings';
 
-test.describe('E2E UI tests', () => {
+test.describe('E2E UI tests', {tag: '@smoke'}, () => {
   test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
 
   const data = readJson('./src/contactList/data/contactData.json');
