@@ -1,4 +1,4 @@
-name: Playwright Tests Scheduled
+name: Contact List UI Tests Scheduled
 on:
   schedule:
     - cron:  '10 19 * * *'
