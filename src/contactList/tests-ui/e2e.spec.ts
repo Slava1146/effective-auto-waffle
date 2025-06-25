@@ -66,7 +66,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
   - Create contact via UI, check data on contact list and details, delete via API
   - Create contact via API, edit contact via UI, check data on contact list and details, delete via API
   - Create contact via API, delete from UI, check that it is not presented on contact list, check that it was deleted via API*/
-  test('End-to-end', async ({ addContact, contactList, editContact, contactDetails, page }) => {
+  test('End-to-end', async ({ addContact, contactList, editContact, contactDetails, page }, testInfo) => {
     // Add new contact
     await contactList.addContactBtn.click();
     await page.waitForLoadState('networkidle');
@@ -75,7 +75,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     await addContact.contactForm.fillForm(contactData);
 
-    await page.screenshot({ path: 'test-results/filled-form.png' });
+    await page.screenshot({ path: 'playwright-report/data/filled-form.png' });
 
     await addContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -93,7 +93,8 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
       ).toHaveText(rowDataArr[i]);
     }
 
-    await page.screenshot({ path: 'test-results/created-contact-on-listing.png' });
+    let screenshot = await page.screenshot({ path: 'playwright-report/data/created-contact-on-listing.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
     // Review created contact on the contact details page
     await contactList.table.row.nth(rowNumber).click();
@@ -112,7 +113,8 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactData.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactData.country);
 
-    await page.screenshot({ path: 'test-results/contact-on-details-page.png' });
+    screenshot = await page.screenshot({ path: 'playwright-report/data/contact-on-details-page.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
     // Open Edit page and make update
     await contactDetails.editBtn.click();
@@ -121,7 +123,8 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     await editContact.contactForm.fillForm(contactDataUpd);
 
-    await page.screenshot({ path: 'test-results/updated-contact.png' });
+    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
     await editContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -140,7 +143,8 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactDataUpd.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactDataUpd.country);
 
-    await page.screenshot({ path: 'test-results/updated-contact-on-details-page.png' });
+    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact-on-details-page.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
     await contactDetails.backToListBtn.click();
     await page.waitForLoadState('networkidle');
@@ -158,7 +162,8 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
       ).toHaveText(rowDataUpdArr[i]);
     }
 
-    await page.screenshot({ path: 'test-results/updated-contact-on-listing.png' });
+    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact-on-listing.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 
     // Delete created contact
     await contactList.table.row.nth(rowNumber).click();
@@ -173,6 +178,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     // Verify that deleted contact is not presented on the page
     await expect(page.getByText(`${contactDataUpd.firstName} ${contactDataUpd.lastName}`)).not.toBeVisible();
-    await page.screenshot({ path: 'test-results/listing-after-contact-deletion.png' });
+    screenshot = await page.screenshot({ path: 'playwright-report/data/listing-after-contact-deletion.png' });
+    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
   });
 });

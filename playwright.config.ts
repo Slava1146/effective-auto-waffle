@@ -54,7 +54,7 @@ export default defineConfig({
       testMatch: '**contactList/tests-ui/**/*.spec.ts',
       use: {
         screenshot: {
-          mode: 'on',
+          mode: 'only-on-failure',
           fullPage: true,
           omitBackground: true,
         },
@@ -70,7 +70,7 @@ export default defineConfig({
       testMatch: '**contactList/tests-api/**/*.spec.ts',
       use: {
         screenshot: {
-          mode: 'on',
+          mode: 'only-on-failure',
           fullPage: true,
           omitBackground: true,
         },
