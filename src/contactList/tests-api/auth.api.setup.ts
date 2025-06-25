@@ -5,7 +5,7 @@ import path from 'path';
 
 const { url: BASE_URL } = getEnv();
 
-const authFile = path.join(__dirname, '../data/states/contactListApiAuth.json');
+const authFile = path.join(__dirname, '../data/states/contactListAuth.json');
 
 setup('Authenticate via API', async ({ request }) => {
   await request.post(BASE_URL + URL_PATH.contactList.api.login, {

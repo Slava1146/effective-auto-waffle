@@ -3,7 +3,7 @@ import { test } from '../po';
 import { contactForm } from '../data/textData';
 
 test.describe('AddContact UI tests', { tag: '@addContactUI' }, () => {
-  test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
+  test.use({ storageState: 'src/contactList/data/states/contactListAuth.json' });
   test.beforeEach(async ({ addContact }) => {
     await addContact.goto();
   });

@@ -2,7 +2,7 @@
 import { test } from '../po';
 
 test.describe('ContactList UI tests', { tag: '@listingUI' }, () => {
-  test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
+  test.use({ storageState: 'src/contactList/data/states/contactListAuth.json' });
   test.beforeEach(async ({ contactList }) => {
     await contactList.goto();
     await contactList.defaultElVisibilityCheck();

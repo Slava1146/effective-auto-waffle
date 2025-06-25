@@ -3,7 +3,7 @@ import { test as setup } from '../po';
 import { CONTACT_LIST_USER } from '../data/constants';
 import path from 'path';
 
-const authFile = path.join(__dirname, '../data/states/contactListUiAuth.json');
+const authFile = path.join(__dirname, '../data/states/contactListAuth.json');
 
 setup.describe('Authenticate via UI form', () => {
   setup.beforeEach(async ({ login }) => {

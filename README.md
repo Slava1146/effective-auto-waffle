@@ -27,7 +27,7 @@ This web application is a contact list application with a web UI component and a
 <br>`CONTACT_LIST_PASS = ''`
 
 - Create folder `states` in `src/contactList/data`
-- Create in `states` folder `contactListApiAuth.json` and `contactListUiAuth.json`
+- Create in `states` folder `contactListAuth.json`
 - Put in each file following: `{ "cookies": [ { } ], "origins": [] }` 
 
 ## List of commands

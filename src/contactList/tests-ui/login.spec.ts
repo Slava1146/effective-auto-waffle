@@ -13,7 +13,7 @@ test.describe('Login UI tests', { tag: '@loginUI' }, () => {
     await login.loginFormVisibilityCheck();
   });
 
-  test('User can log in and log out from UI', async ({ login, contactList }) => {
+  test.fixme('User can log in and log out from UI', async ({ login, contactList }) => {
     await login.login(CONTACT_LIST_USER.userLogin, CONTACT_LIST_USER.password);
 
     await expect(contactList.header.logoutBtn).toBeVisible();

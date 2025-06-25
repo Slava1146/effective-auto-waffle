@@ -7,7 +7,7 @@ dotenv.config();
 
 const { url } = getEnv();
 
-const apiStorage = readJson('./src/contactList/data/states/contactListApiAuth.json');
+const apiStorage = readJson('./src/contactList/data/states/contactListAuth.json');
 
 const launchName: string = `${process.env.PROJECT_NAME}`;
 
@@ -21,6 +21,7 @@ const RPconfig = {
 };
 
 const getReporters = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const reporter: any[] = [['html', { open: 'never' }], ['list']];
 
   if (process.env.USE_REPORTPORTAL === 'true') {
@@ -57,6 +58,9 @@ export default defineConfig({
           mode: 'only-on-failure',
           fullPage: true,
           omitBackground: true,
+        },
+        extraHTTPHeaders: {
+          Authorization: `Bearer ${apiStorage.cookies[0].value}`,
         },
       },
       dependencies: ['contactListSetupUi'],
