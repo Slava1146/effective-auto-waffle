@@ -1,7 +1,7 @@
 name: Contact List API Tests Scheduled
 on:
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '0 6 * * *'
 jobs:
   test:
     timeout-minutes: 20
