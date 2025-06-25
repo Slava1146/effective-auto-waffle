@@ -24,7 +24,7 @@ jobs:
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
           RP_GITHUB_KEY: ${{ secrets.RP_GITHUB_KEY }}
           USE_REPORTPORTAL: 'false'
-        run: npx playwright test /src/contactList/tests-ui --project=contactListUi --grep smoke
+        run: npx playwright test --project=contactListUi --grep @smoke
       - name: Run Contact list API tests
         env:
           CONTACT_LIST_USER: ${{ secrets.CONTACT_LIST_USER }}
@@ -32,7 +32,7 @@ jobs:
           CONTACT_LIST_PASS: ${{ secrets.CONTACT_LIST_PASS }}
           RP_GITHUB_KEY: ${{ secrets.RP_GITHUB_KEY }}
           USE_REPORTPORTAL: 'false'
-        run: npx playwright test /src/contactList/tests-api --project=contactListApi --grep smoke
+        run: npx playwright test --project=contactListApi --grep @smoke
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
