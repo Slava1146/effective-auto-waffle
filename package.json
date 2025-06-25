@@ -6,8 +6,8 @@
   "scripts": {
     "contactListUi": "npx playwright test /src/contactList/tests-ui --project=contactListUi",
     "contactListUiHeaded": "npx playwright test /src/contactList/tests-ui --project=contactListUi --headed",
-    "contactListUiSmoke": "npx playwright test /src/contactList/tests-ui --project=contactListUi --grep @smoke",
-    "contactListApiSmoke": "npx playwright test /src/contactList/tests-api --project=contactListApi --grep @smoke",
+    "contactListUiSmoke": "npx playwright test /src/contactList/tests-ui --project=contactListUi --grep smoke",
+    "contactListApiSmoke": "npx playwright test /src/contactList/tests-api --project=contactListApi --grep smoke",
     "format": "prettier . --write"
   },
   "repository": {

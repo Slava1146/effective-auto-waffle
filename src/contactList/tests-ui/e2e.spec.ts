@@ -4,7 +4,7 @@ import { readJson } from '../../utils/readJson';
 import { generateAlphabeticString } from '../../utils/strings';
 import { addScreenshot } from 'utils/helpers';
 
-test.describe('E2E UI tests', { tag: '@smoke' }, () => {
+test.describe('E2E UI tests', () => {
   test.use({ storageState: 'src/contactList/data/states/contactListAuth.json' });
 
   const data = readJson('./src/contactList/data/contactData.json');
@@ -41,7 +41,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await contactList.goto();
   });
 
-  test('User can create contact', async ({
+  test('User can create contact', { tag: '@smoke' }, async ({
     addContact,
     contactList,
     contactDetails,
@@ -93,7 +93,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await contactListApi.deleteContact(contactId);
   });
 
-  test('User can edit contact', async ({
+  test('User can edit contact', { tag: '@smoke' }, async ({
     addContact,
     contactList,
     contactDetails,
@@ -163,7 +163,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await contactListApi.deleteContact(contactId);
   });
 
-  test('User can delete contact', async ({
+  test('User can delete contact', { tag: '@smoke' }, async ({
     addContact,
     contactList,
     contactDetails,
