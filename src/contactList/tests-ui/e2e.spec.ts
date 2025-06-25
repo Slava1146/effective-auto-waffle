@@ -2,6 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../po';
 import { readJson } from '../../utils/readJson';
 import { generateAlphabeticString } from '../../utils/strings';
+import { addScreenshot } from 'utils/addScreenshot';
 
 test.describe('E2E UI tests', { tag: '@smoke' }, () => {
   test.use({ storageState: 'src/contactList/data/states/contactListUiAuth.json' });
@@ -75,7 +76,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     await addContact.contactForm.fillForm(contactData);
 
-    await page.screenshot({ path: 'playwright-report/data/filled-form.png' });
+    await addScreenshot(addContact.page, testInfo, 'filled-form.png');
 
     await addContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -93,8 +94,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
       ).toHaveText(rowDataArr[i]);
     }
 
-    let screenshot = await page.screenshot({ path: 'playwright-report/data/created-contact-on-listing.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'created-contact-on-listing.png');
 
     // Review created contact on the contact details page
     await contactList.table.row.nth(rowNumber).click();
@@ -113,8 +113,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactData.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactData.country);
 
-    screenshot = await page.screenshot({ path: 'playwright-report/data/contact-on-details-page.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'contact-on-details-page.png');
 
     // Open Edit page and make update
     await contactDetails.editBtn.click();
@@ -123,8 +122,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     await editContact.contactForm.fillForm(contactDataUpd);
 
-    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'updated-contact.png');
 
     await editContact.contactForm.submitBtn.click();
     await page.waitForLoadState('networkidle');
@@ -143,8 +141,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
     await expect(contactDetails.contactForm.postalCodeInpt).toHaveText(contactDataUpd.postalCode);
     await expect(contactDetails.contactForm.countryInpt).toHaveText(contactDataUpd.country);
 
-    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact-on-details-page.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'updated-contact-on-details-page.png');
 
     await contactDetails.backToListBtn.click();
     await page.waitForLoadState('networkidle');
@@ -162,8 +159,7 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
       ).toHaveText(rowDataUpdArr[i]);
     }
 
-    screenshot = await page.screenshot({ path: 'playwright-report/data/updated-contact-on-listing.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'updated-contact-on-listing.png');
 
     // Delete created contact
     await contactList.table.row.nth(rowNumber).click();
@@ -178,7 +174,6 @@ test.describe('E2E UI tests', { tag: '@smoke' }, () => {
 
     // Verify that deleted contact is not presented on the page
     await expect(page.getByText(`${contactDataUpd.firstName} ${contactDataUpd.lastName}`)).not.toBeVisible();
-    screenshot = await page.screenshot({ path: 'playwright-report/data/listing-after-contact-deletion.png' });
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    await addScreenshot(addContact.page, testInfo, 'listing-after-contact-deletion.png');
   });
 });

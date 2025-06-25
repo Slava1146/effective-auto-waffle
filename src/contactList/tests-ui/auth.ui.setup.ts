@@ -11,7 +11,7 @@ setup.describe('Authenticate via UI form', () => {
     await login.loginFormVisibilityCheck();
   });
 
-  setup('Log in and save sate', async ({ login, page, contactList }) => {
+  setup('Log in and save state', async ({ login, page, contactList }) => {
     await login.login(CONTACT_LIST_USER.user, CONTACT_LIST_USER.password);
     await expect(contactList.header.logoutBtn).toBeVisible();
 
