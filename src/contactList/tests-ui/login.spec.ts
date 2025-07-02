@@ -13,6 +13,7 @@ test.describe('Login UI tests', { tag: '@loginUI' }, () => {
     await login.loginFormVisibilityCheck();
   });
 
+  /*
   test.fixme('User can log in and log out from UI', async ({ login, contactList }) => {
     await login.login(CONTACT_LIST_USER.userLogin, CONTACT_LIST_USER.password);
 
@@ -21,6 +22,7 @@ test.describe('Login UI tests', { tag: '@loginUI' }, () => {
 
     await login.loginFormVisibilityCheck();
   });
+  */
 
   test('User cannot log in from UI with incorrect credentials', async ({ login, contactList }) => {
     await login.login(`${RANDOM_STRING}@gmail.com`, RANDOM_STRING);
